@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Book;
-use App\Http\Requests\StoreBookRequest;
-use App\Http\Requests\UpdateBookRequest;
+use App\Models\User;
+use Illuminate\Http\Request;
 
-class BookController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return Book::all();
+        return User::all();
     }
 
     /**
@@ -21,29 +20,30 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreBookRequest $request)
+    public function store(Request $request)
     {
-        //
+        $record=new User();
+        $record->create($request->all());
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Book $book)
+    public function show(User $user)
     {
-        return $book;
+        return $user;
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Book $book)
+    public function edit(User $user)
     {
         //
     }
@@ -51,9 +51,9 @@ class BookController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateBookRequest $request, Book $book)
+    public function update(Request $request, User $user)
     {
-        $record= Book::findOrFail($book->id);
+        $record= User::findorFail($user->id);
         $record->update($request->all());
         return $record;
     }
@@ -61,10 +61,8 @@ class BookController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Book $book)
+    public function destroy(User $user)
     {
-        $record= Book::findorFail($book->id);
-        $record->delete();
-        return $record;
+        return $record=User::destroy($user->id);
     }
 }

@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Book;
-use App\Http\Requests\StoreBookRequest;
-use App\Http\Requests\UpdateBookRequest;
+use App\Models\lendings;
+use App\Http\Requests\StorelendingsRequest;
+use App\Http\Requests\UpdatelendingsRequest;
 
-class BookController extends Controller
+class LendingsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return Book::all();
+        //
     }
 
     /**
@@ -27,7 +27,7 @@ class BookController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreBookRequest $request)
+    public function store(StorelendingsRequest $request)
     {
         //
     }
@@ -35,15 +35,15 @@ class BookController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Book $book)
+    public function show(lendings $lendings)
     {
-        return $book;
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Book $book)
+    public function edit(lendings $lendings)
     {
         //
     }
@@ -51,20 +51,16 @@ class BookController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateBookRequest $request, Book $book)
+    public function update(UpdatelendingsRequest $request, lendings $lendings)
     {
-        $record= Book::findOrFail($book->id);
-        $record->update($request->all());
-        return $record;
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Book $book)
+    public function destroy(lendings $lendings)
     {
-        $record= Book::findorFail($book->id);
-        $record->delete();
-        return $record;
+        //
     }
 }
